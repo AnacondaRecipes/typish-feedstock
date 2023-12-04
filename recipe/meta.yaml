@@ -10,16 +10,16 @@ source:
   sha256: 16f8ff022b7009a91529e363d0484465be57797b9cc34a193ca7e3c4c597e4bc
 
 build:
-  noarch: python
   number: 0
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
-    - python >=3.6
+    - python
     - pip
+    - wheel
   run:
-    - python >=3.6
+    - python
 
 test:
   imports:
@@ -35,7 +35,6 @@ about:
   license_family: MIT
   license_file: LICENSE
   summary: For more control over your types.
-
   description: |
     For more control over your types.
   doc_url: https://github.com/ramonhagenaars/typish
